@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list"
+        android:textSize="36dp"
+        android:textColor="@color/blue"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/msg"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="18dp"
+            android:text="@string/msg"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/edTXT"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/add"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/cancel"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="335dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="@string/txt"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="24dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
