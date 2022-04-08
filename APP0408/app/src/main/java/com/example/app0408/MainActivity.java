@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 
 // Activity의 LifeCycle 살펴보기
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity {
     // Member Variable
 
     private final int REQ_CODE_MES = 87;
@@ -26,65 +26,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout);
         Log.i(TAG, "onCreate");
-        mHelloTXT = (TextView) findViewById(R.id.helloTXT);
-        mHelloTXT.setOnClickListener(this);
     }
+    public void clickFunc(View view) {
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart");
+       switch(view.getId()){
+           case R.id.simpleBTN:
+               startActivity(new Intent(this, MainActivity1.class));
+               break;
+
+           case R.id.dataBTN:
+               Intent data = new Intent(this, MainActivity3.class);
+               data.putExtra("name", "박수현");
+               data.putExtra("age", 24);
+               startActivity(data);
+               break;
+           case R.id.resultBTN:
+               startActivityForResult(new Intent(this, MainActivity2.class), REQ_CODE_MES);
+               break;
+       }
+
     }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.i(TAG, "onRestart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume");
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy");
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.helloTXT:
-                Toast.makeText(this, "click", Toast.LENGTH_LONG).show();
-                Intent msg = new Intent(this, MainActivity2.class);
-
-                // 작성된 Intent 객체를 Android System에 전달
-                //startActivity(msg);
-
-                // 작성된 Intent 객체를 Android System에 전달하면서 결과 받기 요청
-                startActivityForResult(msg, REQ_CODE_MES);
-                break;
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -97,6 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 else {
                     Log.i(TAG, "유감...");
                 }
-            }
         }
+    }
+
 }

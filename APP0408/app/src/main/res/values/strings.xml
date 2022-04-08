@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">APP0408</string>
+    <string name="title">[ ACTIVITY 전환 실습 ]</string>
+    <string name="simple_activity">START ACTIVITY NO DATA</string>
+    <string name="data_activity">START ACTIVITY WITH DATA</string>
+    <string name="result_activity">START ACTIVITY FOR RESULT</string>
 </resources>
