@@ -47,4 +47,13 @@
         android:layout_marginBottom="10dp"
         android:onClick="clickFunc"
         android:text="@string/result_activity" />
+
+    <Button
+        android:id="@+id/launcherBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="clickFunc"
+        android:text="@string/launcher_activity" />
 </LinearLayout>

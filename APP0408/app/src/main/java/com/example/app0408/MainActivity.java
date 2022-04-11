@@ -1,5 +1,9 @@
 package com.example.app0408;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -12,15 +16,20 @@ import android.widget.Toast;
 
 
 // Activity의 LifeCycle 살펴보기
-public class MainActivity extends Activity {
-    // Member Variable
+public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    private static final boolean DEBUG = true;
+
+    // move Variable
+    private ActivityResultLauncher<Intent> mLauncher;
+
+    // Member Variable
     private final int REQ_CODE_MES = 87;
 
     public TextView mHelloTXT;
 
-    private static final String TAG = "MainActivity";
-    private static final boolean DEBUG = true;
+
 
     // Member Method
     @Override
@@ -28,6 +37,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
         Log.i(TAG, "onCreate");
+
+        mLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>(){
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode() == RESULT_OK){
+                    Intent dataINT = result.getData();
+                    Log.i(TAG, "onActivityResult --- " + dataINT.getStringExtra("result"));
+                }
+                else if(result.getResultCode() == RESULT_CANCELED){
+
+                }
+            }
+        });
     }
     public void clickFunc(View view) {
 
@@ -43,7 +65,10 @@ public class MainActivity extends Activity {
                startActivity(data);
                break;
            case R.id.resultBTN:
-               startActivityForResult(new Intent(this, MainActivity2.class), REQ_CODE_MES);
+//               startActivityForResult(new Intent(this, MainActivity2.class), REQ_CODE_MES);
+               break;
+           case R.id.launcherBTN:
+               mLauncher.launch(new Intent(this, MainActivity4.class));
                break;
        }
 

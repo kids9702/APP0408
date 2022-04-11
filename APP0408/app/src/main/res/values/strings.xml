@@ -4,4 +4,6 @@
     <string name="simple_activity">START ACTIVITY NO DATA</string>
     <string name="data_activity">START ACTIVITY WITH DATA</string>
     <string name="result_activity">START ACTIVITY FOR RESULT</string>
+    <string name="launcher_activity">START ACTIVITY FOR LAUNCHER</string>
+    <string name="result_msg">결과 돌려주기</string>
 </resources>
