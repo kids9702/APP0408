@@ -11,12 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MemberJoinActivity extends AppCompatActivity {
-    Button signBTN;
-    Button cancelBTN;
-    EditText nameETXT;
-    EditText emailETXT;
-    EditText idETXT;
-    EditText pwdETXT;
+    Button signBTN, cancelBTN;
+    EditText nameETXT, emailETXT, idETXT, pwdETXT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
