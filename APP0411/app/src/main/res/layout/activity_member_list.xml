@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemberListActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[ 회원 리스트 ]"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/joinBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="join"
+        android:text="새 회 원" />
+
+    <TextView
+        android:id="@+id/newTXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/newmember"
+        android:textSize="24dp"
+        android:textColor="@color/black"/>
+</LinearLayout>
