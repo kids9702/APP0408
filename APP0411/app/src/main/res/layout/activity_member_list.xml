@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MemberListActivity"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:layout_margin="20dp">
 
     <TextView
@@ -36,4 +36,10 @@
         android:text="@string/newmember"
         android:textSize="24dp"
         android:textColor="@color/black"/>
+
+    <ListView
+        android:id="@+id/listLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 </LinearLayout>

@@ -9,9 +9,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
 
     LinearLayout intro;
+    private final String TAG = "MainActivity";
+
 
 
     @Override
@@ -20,18 +24,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         setContentView(R.layout.activity_main);
 
         intro = (LinearLayout) findViewById(R.id.intro);
-        intro.setOnTouchListener(this);
+        intro.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Log.i("Main", "Go List");
+                startActivity(new Intent(MainActivity.this, MemberListActivity.class));
+                return true;
+            }
+        });
+
+        if(AppConstant.memList == null)
+            AppConstant.memList = new ArrayList<Member>();
+        else
+            Log.i(TAG, "현재 등록 멤버수 : " + AppConstant.memList.size());
     }
 
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-            Log.i("Main", "Go List");
-            Intent go_list = new Intent(this, MemberListActivity.class);
-            startActivity(go_list);
-            finish();
-        }
-        return true;
-    }
 }

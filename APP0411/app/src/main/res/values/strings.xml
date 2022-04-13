@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">APP0411</string>
     <string name="newmember">새 회원</string>
+    <string name="no_member">회원이 없습니다.</string>
 </resources>
