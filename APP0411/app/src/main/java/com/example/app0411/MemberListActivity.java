@@ -38,31 +38,7 @@ public class MemberListActivity extends AppCompatActivity {
         newmemTXT = (TextView) findViewById(R.id.newTXT);
         listLV = (ListView) findViewById(R.id.listLV) ;
 
-        if (AppConstant.memList.size()>0) {
-            listLV.setVisibility(View.VISIBLE);
-            newmemTXT.setVisibility(View.GONE);
-        }else {
-            listLV.setVisibility(View.GONE);
-            newmemTXT.setVisibility(View.VISIBLE);
-        }
 
-        mPList = new ArrayList<HashMap<String, String>>();
-
-        if(AppConstant.memList.size()>0) {
-            for (int idx=0; idx<AppConstant.memList.size(); idx++) {
-                HashMap<String, String> p1 = new HashMap<>();
-                p1.put(AppConstant.NAME, AppConstant.memList.get(idx).getName());
-                p1.put(AppConstant.ID, AppConstant.memList.get(idx).getName());
-                mPList.add(p1);
-            }
-        }
-
-        mAdapter = new SimpleAdapter(this, mPList, android.R.layout.simple_list_item_2,
-                new String[]{AppConstant.NAME, AppConstant.ID},
-                new int[]{android.R.id.text1, android.R.id.text2});
-
-        // ListView에 List 담기 설정하기
-        listLV.setAdapter(mAdapter);
 
         mLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>(){
             @Override
@@ -82,9 +58,35 @@ public class MemberListActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (AppConstant.memList.size()>0) {
+            listLV.setVisibility(View.VISIBLE);
+            newmemTXT.setVisibility(View.GONE);
+        }else {
+            listLV.setVisibility(View.GONE);
+            newmemTXT.setVisibility(View.VISIBLE);
+        }
+
+        mPList = new ArrayList<HashMap<String, String>>();
+
+        if(AppConstant.memList.size()>0) {
+            for (int idx=0; idx<AppConstant.memList.size(); idx++) {
+                HashMap<String, String> p1 = new HashMap<>();
+                p1.put(AppConstant.NAME, AppConstant.memList.get(idx).getName());
+                p1.put(AppConstant.ID, AppConstant.memList.get(idx).getId());
+                mPList.add(p1);
+            }
+        }
+
+        mAdapter = new SimpleAdapter(this, mPList, android.R.layout.simple_list_item_2,
+                new String[]{AppConstant.NAME, AppConstant.ID},
+                new int[]{android.R.id.text1, android.R.id.text2});
+
+        // ListView에 List 담기 설정하기
+        listLV.setAdapter(mAdapter);
+
 //        if(AppConstant.memList.size()>0) {
 //            newmemTXT.setText("현재 등록 멤버 수 : " + AppConstant.memList.size());
 //            int nums = AppConstant.memList.size();
@@ -102,7 +104,7 @@ public class MemberListActivity extends AppCompatActivity {
 //        else{
 //            newmemTXT.setText(R.string.no_member);
 //        }
-//    }
+    }
 
     public void join(View view) {
         mLauncher.launch(new Intent(this, MemberJoinActivity.class));
