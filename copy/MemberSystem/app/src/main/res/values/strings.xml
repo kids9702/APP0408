@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">회원관리시스템</string>
+    <string name="version">V0.1.0</string>
+    <string name="mem_list">[회원 리스트]</string>
+    <string name="newMemBTN">새회원</string>
+    <string name="sign_up">[회원 가입]</string>
+    <string name="name">이름</string>
+    <string name="email">이메일</string>
+    <string name="id">아이디</string>
+    <string name="passwd">비밀번호</string>
+
+    <string name="sign_upBTN">가입</string>
+    <string name="cancelBTN">취소</string>
+    <string name="no_member">회원이 없습니다</string>
+
+</resources>

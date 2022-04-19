@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">회원관리시스템</string>
+    <string name="member_list">[ 회원리스트 ]</string>
+    <string name="member_join">[ 회원가입 ]</string>
+    <string name="name">이      름</string>
+    <string name="email">이  메  일</string>
+    <string name="id">아  이  디</string>
+    <string name="pw">비밀  번호</string>
+    <string name="add">추     가</string>
+    <string name="join">가     입</string>
+    <string name="cancel">취     소</string>
+    <string name="ok">확     인</string>
+    <string name="none">""</string>
+    <string name="no_member">"가입된 회원이 없습니다."</string>
+    <string name="member_count">"가입된 회원 : "</string>
+    <string name="version">"v1.1.0"</string>
+    <string name="newBTN">newBTN</string>
+
+</resources>
